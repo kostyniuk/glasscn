@@ -64,7 +64,7 @@ export default function Page() {
         }}
       />
       <PageHeader className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
-        <GlassPanel tone="hero" className="rounded-full px-2 py-2 mb-6 border border-white/30 dark:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-none hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-500">
+        <GlassPanel tone="hero" className="rounded-full px-2 py-2 mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-none hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-500">
           <Announcement />
         </GlassPanel>
         <PageHeaderHeading className="font-[family-name:var(--font-heading)] max-w-5xl text-5xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/60 drop-shadow-sm pb-2">
@@ -74,7 +74,7 @@ export default function Page() {
           {description}
         </PageHeaderDescription>
         <PageActions className="mt-10">
-          <GlassPanel tone="hero" className="flex flex-wrap items-center justify-center gap-3 px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-white/30 dark:border-white/10">
+          <GlassPanel tone="hero" className="flex flex-wrap items-center justify-center gap-3 px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
             <a
               href="#components"
               className={cn(

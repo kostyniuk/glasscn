@@ -22,19 +22,19 @@ function FrostGlass({
     clear: [
       "backdrop-blur-[8px] backdrop-saturate-[1.8]",
       "bg-white/[0.22] dark:bg-white/[0.06]",
-      "border border-white/[0.52] dark:border-white/[0.14]",
+      "border border-zinc-950/[0.08] dark:border-white/[0.14]",
       "shadow-[0_10px_34px_rgba(15,23,42,0.08)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.22)]",
     ].join(" "),
     frosted: [
       "backdrop-blur-[18px] backdrop-saturate-[1.5]",
       "bg-white/[0.32] dark:bg-white/[0.09]",
-      "border border-white/[0.38] dark:border-white/[0.13]",
+      "border border-zinc-950/[0.1] dark:border-white/[0.13]",
       "shadow-[0_16px_44px_rgba(15,23,42,0.10)] dark:shadow-[0_18px_42px_rgba(0,0,0,0.24)]",
     ].join(" "),
     subtle: [
       "backdrop-blur-[10px] backdrop-saturate-[1.35]",
       "bg-white/[0.16] dark:bg-white/[0.04]",
-      "border border-white/[0.3] dark:border-white/[0.1]",
+      "border border-zinc-950/[0.06] dark:border-white/[0.1]",
       "shadow-[0_8px_20px_rgba(15,23,42,0.07)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.18)]",
     ].join(" "),
   }
