@@ -1,0 +1,40 @@
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+import { FrostGlass } from "@/components/ui/frost-glass"
+
+type GlassPanelTone = "hero" | "surface" | "overlay" | "inline"
+
+interface GlassPanelProps extends React.ComponentProps<typeof FrostGlass> {
+  tone?: GlassPanelTone
+}
+
+const toneStyles: Record<GlassPanelTone, string> = {
+  hero: "rounded-[1.75rem] border-white/55 bg-white/18 px-4 py-3 shadow-[0_18px_42px_rgba(15,23,42,0.08)] dark:border-white/14 dark:bg-white/[0.05] dark:shadow-[0_18px_42px_rgba(0,0,0,0.18)]",
+  surface:
+    "rounded-[1.75rem] border-white/44 bg-white/14 shadow-[0_14px_36px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-[0_14px_36px_rgba(0,0,0,0.16)]",
+  overlay:
+    "rounded-[1.5rem] border-white/42 bg-white/24 shadow-[0_16px_34px_rgba(15,23,42,0.12)] dark:border-white/12 dark:bg-white/[0.08] dark:shadow-[0_16px_34px_rgba(0,0,0,0.2)]",
+  inline:
+    "rounded-full border-white/50 bg-white/14 px-2 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.05] dark:shadow-[0_10px_24px_rgba(0,0,0,0.14)]",
+}
+
+function GlassPanel({
+  tone = "surface",
+  variant,
+  className,
+  ...props
+}: GlassPanelProps) {
+  const resolvedVariant =
+    variant ?? (tone === "hero" ? "clear" : tone === "overlay" ? "frosted" : "subtle")
+
+  return (
+    <FrostGlass
+      variant={resolvedVariant}
+      className={cn(toneStyles[tone], className)}
+      {...props}
+    />
+  )
+}
+
+export { GlassPanel }
