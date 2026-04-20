@@ -24,7 +24,9 @@ export function AppearanceSettings() {
   const [gpuCount, setGpuCount] = React.useState(8)
 
   const handleGpuAdjustment = React.useCallback((adjustment: number) => {
-    setGpuCount((prevCount) => Math.max(1, Math.min(99, prevCount + adjustment)))
+    setGpuCount((prevCount) =>
+      Math.max(1, Math.min(99, prevCount + adjustment))
+    )
   }, [])
 
   const handleGpuInputChange = React.useCallback(
@@ -68,10 +70,15 @@ export function AppearanceSettings() {
                   <FieldContent>
                     <FieldTitle>Virtual Machine</FieldTitle>
                     <FieldDescription>
-                      Access a VM configured cluster to run workloads. (Coming soon)
+                      Access a VM configured cluster to run workloads. (Coming
+                      soon)
                     </FieldDescription>
                   </FieldContent>
-                  <RadioGroupItem value="vm" id="vm-z4k" aria-label="Virtual Machine" />
+                  <RadioGroupItem
+                    value="vm"
+                    id="vm-z4k"
+                    aria-label="Virtual Machine"
+                  />
                 </Field>
               </FieldLabel>
             </RadioGroup>
@@ -79,7 +86,9 @@ export function AppearanceSettings() {
           <FieldSeparator />
           <Field orientation="horizontal">
             <FieldContent>
-              <FieldLabel htmlFor="number-of-gpus-f6l">Number of GPUs</FieldLabel>
+              <FieldLabel htmlFor="number-of-gpus-f6l">
+                Number of GPUs
+              </FieldLabel>
               <FieldDescription>You can add more later.</FieldDescription>
             </FieldContent>
             <div

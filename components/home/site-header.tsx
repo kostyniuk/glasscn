@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { IconBrandGithub } from "@tabler/icons-react"
+import { IconBrandGithub, IconStarFilled } from "@tabler/icons-react"
 
 import { Button } from "@/components/ui/button"
 import { FrostGlass } from "@/components/ui/frost-glass"
@@ -23,13 +23,27 @@ export async function SiteHeader() {
         <FrostGlass variant="clear">
           <div className="flex h-12 items-center justify-between px-5">
             <ThemeToggle />
-            <Link href="#components">
+            <Link href="/components">
               <Button variant="ghost">Components</Button>
             </Link>
-            <Link href="https://github.com/kostyniuk/glasscn" target="_blank" rel="noreferrer">
-              <Button variant="ghost" className="flex cursor-pointer flex-row items-center gap-2">
+            <Link
+              href="https://github.com/kostyniuk/glasscn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button
+                variant="ghost"
+                className="flex cursor-pointer flex-row items-center gap-2"
+              >
                 <IconBrandGithub className="size-5" />
-                {stars !== null ? <span className="text-sm font-medium">{stars}</span> : null}
+                {stars ? (
+                  <span className="text-sm font-medium">{stars}</span>
+                ) : (
+                  <span className="flex items-center gap-1.5 text-sm font-medium">
+                    Be first one to star
+                    <IconStarFilled className="size-4 text-amber-500 dark:text-amber-400" />
+                  </span>
+                )}
               </Button>
             </Link>
           </div>
