@@ -13,9 +13,9 @@ import { GlassPanel } from "@/components/ui/glass-panel"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-const title = "The Foundation for your Design System"
+const title = "Beautifully Frosted Components"
 const description =
-  "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code."
+  "An Apple-inspired glassmorphic design system. Elevate your Next.js applications with incredibly premium, translucent components that seamlessly blend with any background."
 
 export default function Page() {
   return (
