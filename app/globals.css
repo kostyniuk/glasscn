@@ -1,10 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../registry/styles/style-nova.css" layer(base);
+@import "../registry/styles/style-luma.css" layer(base);
 
+@custom-variant style-nova (&:where(.style-nova *));
+@custom-variant style-lyra (&:where(.style-lyra *));
+@custom-variant style-mira (&:where(.style-mira *));
+@custom-variant style-luma (&:where(.style-luma *));
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --breakpoint-3xl: 1600px;
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
@@ -64,8 +71,8 @@
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
+    --border: oklch(0 0 0 / 8%);
+    --input: oklch(0 0 0 / 12%);
     --ring: oklch(0.708 0 0);
     --chart-1: oklch(0.845 0.143 164.978);
     --chart-2: oklch(0.696 0.17 162.48);
@@ -130,6 +137,9 @@
 @layer base {
     * {
         @apply border-border outline-ring/50;
+        }
+    .cn-font-heading {
+        @apply font-heading;
         }
     body {
         @apply bg-background text-foreground;

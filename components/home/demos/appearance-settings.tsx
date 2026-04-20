@@ -5,7 +5,6 @@ import { IconMinus, IconPlus } from "@tabler/icons-react"
 
 import { DemoShell } from "@/components/home/demos/demo-shell"
 import { Button } from "@/components/ui/button"
-import { ButtonGroup } from "@/components/ui/button-group"
 import {
   Field,
   FieldContent,
@@ -25,7 +24,9 @@ export function AppearanceSettings() {
   const [gpuCount, setGpuCount] = React.useState(8)
 
   const handleGpuAdjustment = React.useCallback((adjustment: number) => {
-    setGpuCount((prevCount) => Math.max(1, Math.min(99, prevCount + adjustment)))
+    setGpuCount((prevCount) =>
+      Math.max(1, Math.min(99, prevCount + adjustment))
+    )
   }, [])
 
   const handleGpuInputChange = React.useCallback(
@@ -69,10 +70,15 @@ export function AppearanceSettings() {
                   <FieldContent>
                     <FieldTitle>Virtual Machine</FieldTitle>
                     <FieldDescription>
-                      Access a VM configured cluster to run workloads. (Coming soon)
+                      Access a VM configured cluster to run workloads. (Coming
+                      soon)
                     </FieldDescription>
                   </FieldContent>
-                  <RadioGroupItem value="vm" id="vm-z4k" aria-label="Virtual Machine" />
+                  <RadioGroupItem
+                    value="vm"
+                    id="vm-z4k"
+                    aria-label="Virtual Machine"
+                  />
                 </Field>
               </FieldLabel>
             </RadioGroup>
@@ -80,39 +86,49 @@ export function AppearanceSettings() {
           <FieldSeparator />
           <Field orientation="horizontal">
             <FieldContent>
-              <FieldLabel htmlFor="number-of-gpus-f6l">Number of GPUs</FieldLabel>
+              <FieldLabel htmlFor="number-of-gpus-f6l">
+                Number of GPUs
+              </FieldLabel>
               <FieldDescription>You can add more later.</FieldDescription>
             </FieldContent>
-            <ButtonGroup>
+            <div
+              role="group"
+              aria-label="GPU count controls"
+              className="inline-flex h-8 shrink-0 items-stretch overflow-hidden rounded-full border border-border bg-input/50"
+            >
               <Input
                 id="number-of-gpus-f6l"
                 value={gpuCount}
                 onChange={handleGpuInputChange}
                 size={3}
-                className="h-7 w-14! font-mono"
+                className="h-full w-14! min-w-0 rounded-none border-0 bg-transparent px-0 py-0 text-center font-mono text-base tabular-nums shadow-none focus-visible:border-0 focus-visible:ring-0 aria-invalid:ring-0"
                 maxLength={3}
               />
+              <div className="w-px bg-border/80" />
               <Button
-                variant="outline"
+                variant="ghost"
                 size="icon-sm"
                 type="button"
                 aria-label="Decrement"
+                className="h-full w-8 rounded-none border-0 p-0 shadow-none hover:bg-foreground/[0.04] dark:hover:bg-white/[0.05]"
                 onClick={() => handleGpuAdjustment(-1)}
                 disabled={gpuCount <= 1}
               >
-                <IconMinus />
+                <IconMinus className="size-4" />
               </Button>
+              <div className="w-px bg-border/80" />
               <Button
-                variant="outline"
+                variant="ghost"
                 size="icon-sm"
                 type="button"
                 aria-label="Increment"
+                className="h-full w-8 rounded-none border-0 p-0 shadow-none hover:bg-foreground/[0.04] dark:hover:bg-white/[0.05]"
                 onClick={() => handleGpuAdjustment(1)}
                 disabled={gpuCount >= 99}
               >
-                <IconPlus />
+                <IconPlus className="size-4" />
               </Button>
-            </ButtonGroup>
+            </div>
           </Field>
           <FieldSeparator />
           <Field orientation="horizontal">

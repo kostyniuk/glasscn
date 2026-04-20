@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Outfit, Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -11,6 +11,7 @@ export const metadata = {
 }
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -29,7 +30,8 @@ export default function RootLayout({
       className={cn(
         "font-sans antialiased",
         fontMono.variable,
-        geist.variable
+        geist.variable,
+        outfit.variable
       )}
     >
       <body className="min-h-dvh overflow-x-hidden">
