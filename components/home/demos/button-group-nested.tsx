@@ -6,7 +6,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
 
 export function ButtonGroupNested() {
   return (
-    <DemoShell className="px-3 py-3">
+    <DemoShell className="flex justify-center px-3 py-3">
       <ButtonGroup>
         <ButtonGroup>
           <Button variant="outline" size="sm">
