@@ -14,8 +14,20 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const title = "Beautifully Frosted Components"
-const description =
-  "An Apple-inspired glassmorphic design system. Elevate your Next.js applications with incredibly premium, translucent components that seamlessly blend with any background."
+const description = (
+  <>
+    An Apple-inspired glassmorphic design system based on{" "}
+    <a
+      href="https://ui.shadcn.com"
+      target="_blank"
+      rel="noreferrer"
+      className="underline underline-offset-4 font-semibold hover:text-primary transition-colors"
+    >
+      shadcn/ui
+    </a>
+    . Elevate your Next.js applications with incredibly premium, translucent components.
+  </>
+)
 
 export default function Page() {
   return (
@@ -55,7 +67,7 @@ export default function Page() {
         <GlassPanel tone="hero" className="rounded-full px-2 py-2 mb-6 border border-white/30 dark:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-none hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-500">
           <Announcement />
         </GlassPanel>
-        <PageHeaderHeading className="max-w-5xl text-5xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/60 drop-shadow-sm pb-2">
+        <PageHeaderHeading className="font-[family-name:var(--font-heading)] max-w-5xl text-5xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/60 drop-shadow-sm pb-2">
           {title}
         </PageHeaderHeading>
         <PageHeaderDescription className="mt-6 max-w-2xl text-lg md:text-xl text-foreground/80 font-medium leading-relaxed">
