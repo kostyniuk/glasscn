@@ -742,6 +742,69 @@ export function SwitchExample() {
   )
 }`
 
+export const tabsSource = `import { Badge } from "@/components/ui/badge"
+import { GlassPanel } from "@/components/ui/glass-panel"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+
+export function TabsExample() {
+  return (
+    <Tabs defaultValue="overview" className="w-full max-w-lg">
+      <TabsList className="w-full">
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="activity">Activity</TabsTrigger>
+        <TabsTrigger value="settings">Settings</TabsTrigger>
+      </TabsList>
+      <TabsContent value="overview" className="pt-4">
+        <GlassPanel tone="inline" className="space-y-3 rounded-3xl p-4">
+          <div className="flex items-center justify-between">
+            <div className="text-sm font-medium">Workspace overview</div>
+            <Badge variant="secondary">Live</Badge>
+          </div>
+          <div className="grid grid-cols-3 gap-3 text-sm">
+            <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+              <div className="font-medium">12</div>
+              <div className="text-muted-foreground">Layers</div>
+            </div>
+            <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+              <div className="font-medium">4</div>
+              <div className="text-muted-foreground">Themes</div>
+            </div>
+            <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+              <div className="font-medium">98%</div>
+              <div className="text-muted-foreground">Ready</div>
+            </div>
+          </div>
+        </GlassPanel>
+      </TabsContent>
+      <TabsContent value="activity" className="pt-4">
+        <GlassPanel tone="inline" className="rounded-3xl p-4">
+          <div className="space-y-2 text-sm">
+            <div className="font-medium">Recent activity</div>
+            <div className="text-muted-foreground">
+              Theme variables were synced across the latest glass surfaces.
+            </div>
+          </div>
+        </GlassPanel>
+      </TabsContent>
+      <TabsContent value="settings" className="pt-4">
+        <GlassPanel tone="inline" className="rounded-3xl p-4">
+          <div className="space-y-2 text-sm">
+            <div className="font-medium">Appearance settings</div>
+            <div className="text-muted-foreground">
+              Keep tabs readable while preserving the translucent shell.
+            </div>
+          </div>
+        </GlassPanel>
+      </TabsContent>
+    </Tabs>
+  )
+}`
+
 export const textareaSource = `import {
   Field,
   FieldDescription,

@@ -18,7 +18,7 @@ import {
 import { cn } from "@/lib/utils"
 
 const ADD_COMMAND =
-  "npx shadcn@latest add --yes avatar badge button button-group card checkbox command dialog dropdown-menu empty field input input-group item label popover radio-group scroll-area select separator slider spinner switch textarea tooltip"
+  "npx shadcn@latest add --yes avatar badge button button-group card checkbox command dialog dropdown-menu empty field input input-group item label popover radio-group scroll-area select separator slider spinner switch tabs textarea tooltip"
 
 export function ThemeSelector({ className }: React.ComponentProps<"div">) {
   const { theme, setTheme } = useTheme()
@@ -64,7 +64,11 @@ export function ThemeSelector({ className }: React.ComponentProps<"div">) {
           onClick={copyCommand}
           aria-label="Copy shadcn add command"
         >
-          {copied ? <CheckIcon className="size-4" /> : <CopyIcon className="size-4" />}
+          {copied ? (
+            <CheckIcon className="size-4" />
+          ) : (
+            <CopyIcon className="size-4" />
+          )}
         </Button>
       </GlassPanel>
     </div>
