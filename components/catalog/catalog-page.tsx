@@ -34,7 +34,7 @@ export function CatalogPage() {
         <CatalogMobileNav entries={catalogEntries} />
 
         <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-10">
-          <div className="hidden lg:block lg:sticky lg:top-[200px] lg:h-fit lg:self-start">
+          <div className="hidden lg:block lg:sticky lg:top-10 lg:h-fit lg:self-start">
             <CatalogSidebar entries={catalogEntries} />
           </div>
 
@@ -48,7 +48,7 @@ export function CatalogPage() {
               </span>
             </header>
 
-            <div className="grid grid-cols-1 gap-4 xl:grid-cols-2 xl:gap-5">
+            <div className="grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8">
               {catalogEntries.map((entry) => (
                 <ComponentSection key={entry.id} entry={entry} />
               ))}
