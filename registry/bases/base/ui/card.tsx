@@ -1,19 +1,32 @@
 import * as React from "react"
 
 import { cn } from "@/registry/bases/base/lib/utils"
+import { GlassPanel } from "@/components/ui/glass-panel"
 
 function Card({
   className,
   size = "default",
+  children,
   ...props
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
-    <div
-      data-slot="card"
+    <GlassPanel
+      tone="surface"
       data-size={size}
-      className={cn("cn-card group/card flex flex-col", className)}
       {...props}
-    />
+      className={cn(
+        "border-white/30 bg-white/10 shadow-[0_18px_42px_rgba(15,23,42,0.08)] dark:border-white/12 dark:bg-white/[0.035] dark:shadow-[0_18px_42px_rgba(0,0,0,0.2)]",
+        className
+      )}
+    >
+      <div
+        data-slot="card"
+        data-size={size}
+        className="cn-card group/card flex flex-col"
+      >
+        {children}
+      </div>
+    </GlassPanel>
   )
 }
 
