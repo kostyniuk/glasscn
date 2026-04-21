@@ -18,7 +18,7 @@ import {
 import { cn } from "@/lib/utils"
 
 const ADD_COMMAND =
-  "npx shadcn@latest add --yes badge scroll-area select avatar button-group card checkbox command dropdown-menu empty field input input-group item popover radio-group separator slider spinner switch textarea tooltip"
+  "npx shadcn@latest add --yes avatar badge button button-group card checkbox command dialog dropdown-menu empty field input input-group item label popover radio-group scroll-area select separator slider spinner switch textarea tooltip"
 
 export function ThemeSelector({ className }: React.ComponentProps<"div">) {
   const { theme, setTheme } = useTheme()

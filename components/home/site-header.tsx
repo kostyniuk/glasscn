@@ -15,7 +15,7 @@ export async function SiteHeader() {
       const repo = await res.json()
       stars = repo.stargazers_count
     }
-  } catch (e) {}
+  } catch {}
 
   return (
     <div className="fixed z-50 flex w-full justify-center">
@@ -26,6 +26,9 @@ export async function SiteHeader() {
               <ThemeToggle />
               <Link href="/">
                 <Button variant="ghost">Home</Button>
+              </Link>
+              <Link href="/showcase">
+                <Button variant="ghost">Showcase</Button>
               </Link>
               <Link href="/components">
                 <Button variant="ghost">Components</Button>
