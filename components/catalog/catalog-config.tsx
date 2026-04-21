@@ -27,6 +27,33 @@ import {
   TextareaCatalogDemo,
   TooltipCatalogDemo,
 } from "@/components/catalog/demos/catalog-demos"
+import {
+  avatarSource,
+  badgeSource,
+  buttonGroupSource,
+  buttonSource,
+  cardSource,
+  checkboxSource,
+  commandSource,
+  dialogSource,
+  dropdownMenuSource,
+  emptySource,
+  fieldSource,
+  inputGroupSource,
+  inputSource,
+  itemSource,
+  labelSource,
+  popoverSource,
+  radioGroupSource,
+  scrollAreaSource,
+  selectSource,
+  separatorSource,
+  sliderSource,
+  spinnerSource,
+  switchSource,
+  textareaSource,
+  tooltipSource,
+} from "@/components/catalog/demos/catalog-demo-sources"
 
 export type CatalogCategory =
   | "foundations"
@@ -42,6 +69,8 @@ export type CatalogEntry = {
   sourcePath: string
   docsHref?: string
   preview: React.ComponentType
+  /** Source snippet shown in the Code tab. */
+  source: string
   notes?: string
 }
 
@@ -83,6 +112,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/avatar.tsx",
     docsHref: docs("avatar"),
     preview: AvatarCatalogDemo,
+    source: avatarSource,
   },
   {
     id: "badge",
@@ -92,6 +122,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/badge.tsx",
     docsHref: docs("badge"),
     preview: BadgeCatalogDemo,
+    source: badgeSource,
   },
   {
     id: "button",
@@ -101,6 +132,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/button.tsx",
     docsHref: docs("button"),
     preview: ButtonCatalogDemo,
+    source: buttonSource,
   },
   {
     id: "button-group",
@@ -110,6 +142,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/button-group.tsx",
     docsHref: docs("button-group"),
     preview: ButtonGroupCatalogDemo,
+    source: buttonGroupSource,
   },
   {
     id: "card",
@@ -119,6 +152,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/card.tsx",
     docsHref: docs("card"),
     preview: CardCatalogDemo,
+    source: cardSource,
   },
   {
     id: "empty",
@@ -128,6 +162,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/empty.tsx",
     docsHref: docs("empty"),
     preview: EmptyCatalogDemo,
+    source: emptySource,
   },
   {
     id: "item",
@@ -137,6 +172,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/item.tsx",
     docsHref: docs("item"),
     preview: ItemCatalogDemo,
+    source: itemSource,
   },
   {
     id: "separator",
@@ -146,6 +182,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/separator.tsx",
     docsHref: docs("separator"),
     preview: SeparatorCatalogDemo,
+    source: separatorSource,
   },
   {
     id: "spinner",
@@ -155,6 +192,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/spinner.tsx",
     docsHref: docs("spinner"),
     preview: SpinnerCatalogDemo,
+    source: spinnerSource,
   },
   {
     id: "checkbox",
@@ -164,6 +202,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/checkbox.tsx",
     docsHref: docs("checkbox"),
     preview: CheckboxCatalogDemo,
+    source: checkboxSource,
   },
   {
     id: "field",
@@ -173,6 +212,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/field.tsx",
     docsHref: docs("field"),
     preview: FieldCatalogDemo,
+    source: fieldSource,
     notes:
       "Use Field when you want labels, descriptions, grouped controls, and validation messaging to share one glass-aware structure.",
   },
@@ -184,6 +224,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/input.tsx",
     docsHref: docs("input"),
     preview: InputCatalogDemo,
+    source: inputSource,
   },
   {
     id: "input-group",
@@ -193,6 +234,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/input-group.tsx",
     docsHref: docs("input-group"),
     preview: InputGroupCatalogDemo,
+    source: inputGroupSource,
     notes:
       "Best for command bars, search fields, and mixed-action inputs where controls should read as a single glass surface.",
   },
@@ -204,6 +246,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/label.tsx",
     docsHref: docs("label"),
     preview: LabelCatalogDemo,
+    source: labelSource,
   },
   {
     id: "radio-group",
@@ -213,6 +256,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/radio-group.tsx",
     docsHref: docs("radio-group"),
     preview: RadioGroupCatalogDemo,
+    source: radioGroupSource,
   },
   {
     id: "select",
@@ -222,6 +266,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/select.tsx",
     docsHref: docs("select"),
     preview: SelectCatalogDemo,
+    source: selectSource,
   },
   {
     id: "slider",
@@ -231,6 +276,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/slider.tsx",
     docsHref: docs("slider"),
     preview: SliderCatalogDemo,
+    source: sliderSource,
   },
   {
     id: "switch",
@@ -240,6 +286,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/switch.tsx",
     docsHref: docs("switch"),
     preview: SwitchCatalogDemo,
+    source: switchSource,
   },
   {
     id: "textarea",
@@ -249,6 +296,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/textarea.tsx",
     docsHref: docs("textarea"),
     preview: TextareaCatalogDemo,
+    source: textareaSource,
   },
   {
     id: "dialog",
@@ -258,6 +306,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/dialog.tsx",
     docsHref: docs("dialog"),
     preview: DialogCatalogDemo,
+    source: dialogSource,
   },
   {
     id: "dropdown-menu",
@@ -267,6 +316,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/dropdown-menu.tsx",
     docsHref: docs("dropdown-menu"),
     preview: DropdownMenuCatalogDemo,
+    source: dropdownMenuSource,
   },
   {
     id: "popover",
@@ -276,6 +326,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/popover.tsx",
     docsHref: docs("popover"),
     preview: PopoverCatalogDemo,
+    source: popoverSource,
   },
   {
     id: "tooltip",
@@ -285,6 +336,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/tooltip.tsx",
     docsHref: docs("tooltip"),
     preview: TooltipCatalogDemo,
+    source: tooltipSource,
   },
   {
     id: "command",
@@ -294,6 +346,7 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/command.tsx",
     docsHref: docs("command"),
     preview: CommandCatalogDemo,
+    source: commandSource,
     notes:
       "Built on cmdk and designed to compose naturally with Dialog for command-palette flows.",
   },
@@ -305,5 +358,6 @@ export const catalogEntries: CatalogEntry[] = [
     sourcePath: "components/ui/scroll-area.tsx",
     docsHref: docs("scroll-area"),
     preview: ScrollAreaCatalogDemo,
+    source: scrollAreaSource,
   },
 ]

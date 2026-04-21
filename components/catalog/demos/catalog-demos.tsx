@@ -141,10 +141,13 @@ function DemoCanvas({
   className,
   children,
 }: React.ComponentProps<"div">) {
+  // Transparent centering container. The owning ComponentSection provides the
+  // surface, so we intentionally avoid borders or fills here to prevent the
+  // previous "card-in-card-in-card" nesting.
   return (
     <div
       className={[
-        "flex min-h-56 w-full items-center justify-center rounded-[1.5rem] border border-white/12 bg-white/[0.03] p-4 dark:border-white/8 dark:bg-white/[0.02]",
+        "flex w-full flex-1 items-center justify-center",
         className,
       ]
         .filter(Boolean)
@@ -248,7 +251,7 @@ export function ButtonGroupCatalogDemo() {
 export function CardCatalogDemo() {
   return (
     <DemoCanvas>
-      <Card className="w-full max-w-sm bg-white/8 shadow-[0_20px_60px_rgba(15,23,42,0.15)] dark:bg-white/[0.04]">
+      <Card className="w-full max-w-sm bg-white/8 dark:bg-white/[0.04]">
         <CardHeader>
           <CardTitle>Glass Revenue</CardTitle>
           <CardDescription>
