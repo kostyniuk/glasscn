@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import type { CatalogEntry } from "@/components/catalog/catalog-config"
-import { GlassPanel } from "@/components/ui/glass-panel"
+import { Card, CardContent } from "@/components/ui/card"
 import {
   Select,
   SelectContent,
@@ -12,11 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export function CatalogMobileNav({
-  entries,
-}: {
-  entries: CatalogEntry[]
-}) {
+export function CatalogMobileNav({ entries }: { entries: CatalogEntry[] }) {
   const [value, setValue] = React.useState(entries[0]?.id ?? "")
 
   React.useEffect(() => {
@@ -33,34 +29,33 @@ export function CatalogMobileNav({
   }, [entries])
 
   return (
-    <GlassPanel
-      tone="surface"
-      className="sticky top-[4.5rem] z-20 mb-6 rounded-[1.5rem] p-1 lg:hidden"
-    >
-      <Select
-        value={value}
-        onValueChange={(nextValue) => {
-          if (!nextValue) {
-            return
-          }
+    <Card className="sticky top-[4.5rem] z-20 mb-6 gap-0 py-0 lg:hidden">
+      <CardContent className="p-1">
+        <Select
+          value={value}
+          onValueChange={(nextValue) => {
+            if (!nextValue) {
+              return
+            }
 
-          setValue(nextValue)
-          const element = document.getElementById(nextValue)
-          element?.scrollIntoView({ behavior: "smooth", block: "start" })
-          window.history.replaceState(null, "", `#${nextValue}`)
-        }}
-      >
-        <SelectTrigger className="w-full border-transparent bg-transparent shadow-none focus-visible:ring-0">
-          <SelectValue placeholder="Jump to component" />
-        </SelectTrigger>
-        <SelectContent align="start">
-          {entries.map((entry) => (
-            <SelectItem key={entry.id} value={entry.id}>
-              {entry.title}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </GlassPanel>
+            setValue(nextValue)
+            const element = document.getElementById(nextValue)
+            element?.scrollIntoView({ behavior: "smooth", block: "start" })
+            window.history.replaceState(null, "", `#${nextValue}`)
+          }}
+        >
+          <SelectTrigger className="w-full border-transparent bg-transparent shadow-none focus-visible:ring-0">
+            <SelectValue placeholder="Jump to component" />
+          </SelectTrigger>
+          <SelectContent align="start">
+            {entries.map((entry) => (
+              <SelectItem key={entry.id} value={entry.id}>
+                {entry.title}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </CardContent>
+    </Card>
   )
 }

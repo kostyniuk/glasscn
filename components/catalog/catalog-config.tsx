@@ -155,13 +155,11 @@ export const catalogEntries: CatalogEntry[] = [
     id: "field",
     title: "Field",
     description:
-      "High-level form composition for labels, descriptions, and states.",
+      "Form composition for labels, descriptions, and states.",
     sourcePath: "components/ui/field.tsx",
     docsHref: docs("field"),
     preview: FieldCatalogDemo,
     source: fieldSource,
-    notes:
-      "Use Field when you want labels, descriptions, grouped controls, and validation messaging to share one glass-aware structure.",
   },
   {
     id: "input",

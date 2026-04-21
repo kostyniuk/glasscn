@@ -73,7 +73,7 @@ export default function PreviewExample() {
   ]
 
   return (
-    <div className="contain-[paint] [--gap:--spacing(4)] md:[--gap:--spacing(6)] xl:[--gap:--spacing(8)] 3xl:[--gap:--spacing(10)] style-lyra:md:[--gap:--spacing(6)] style-mira:md:[--gap:--spacing(6)]">
+    <div className="contain-[paint] [--gap:--spacing(4)] 3xl:[--gap:--spacing(10)] md:[--gap:--spacing(6)] xl:[--gap:--spacing(8)] style-lyra:md:[--gap:--spacing(6)] style-mira:md:[--gap:--spacing(6)]">
       <div
         className="columns-1 [column-gap:var(--gap)] md:columns-2 xl:columns-3 2xl:columns-4"
         data-slot="capture-target"
@@ -81,7 +81,7 @@ export default function PreviewExample() {
         {cards.map((card) => (
           <div
             key={card.key}
-            className="mb-(--gap) min-w-0 break-inside-avoid p-px [contain-intrinsic-size:380px_600px] [content-visibility:auto] [&>*]:w-full"
+            className="mb-(--gap) min-w-0 break-inside-avoid overflow-hidden rounded-[calc(var(--radius-4xl)+1px)] [contain-intrinsic-size:380px_600px] [content-visibility:auto] [&>*]:w-full"
           >
             {card}
           </div>
