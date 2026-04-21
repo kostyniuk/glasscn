@@ -81,7 +81,7 @@ export default function PreviewExample() {
         {cards.map((card) => (
           <div
             key={card.key}
-            className="mb-(--gap) min-w-0 break-inside-avoid overflow-hidden rounded-[calc(var(--radius-4xl)+1px)] [contain-intrinsic-size:380px_600px] [content-visibility:auto] [&>*]:w-full"
+            className="mb-(--gap) min-w-0 break-inside-avoid overflow-hidden rounded-[calc(var(--radius-4xl)+1px)] [&>*]:w-full"
           >
             {card}
           </div>
