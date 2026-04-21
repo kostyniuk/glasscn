@@ -3,14 +3,10 @@
 import * as React from "react"
 
 import type { CatalogEntry } from "@/components/catalog/catalog-config"
-import { GlassPanel } from "@/components/ui/glass-panel"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
-export function CatalogSidebar({
-  entries,
-}: {
-  entries: CatalogEntry[]
-}) {
+export function CatalogSidebar({ entries }: { entries: CatalogEntry[] }) {
   const [activeId, setActiveId] = React.useState(entries[0]?.id ?? "")
 
   React.useEffect(() => {
@@ -45,26 +41,28 @@ export function CatalogSidebar({
   }, [entries])
 
   return (
-    <GlassPanel tone="surface" className="rounded-[2rem] p-4">
-      <div className="mb-4 px-2">
-        <div className="text-sm font-medium">Browse Components</div>
-      </div>
-      <nav className="space-y-1">
-        {entries.map((entry) => (
-          <a
-            key={entry.id}
-            href={`#${entry.id}`}
-            className={cn(
-              "block rounded-2xl px-3 py-1 text-sm transition-colors",
-              activeId === entry.id
-                ? "bg-white/12 border-2 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] dark:bg-white/8"
-                : "text-muted-foreground hover:bg-white/6 hover:text-foreground dark:hover:bg-white/4"
-            )}
-          >
-            {entry.title}
-          </a>
-        ))}
-      </nav>
-    </GlassPanel>
+    <Card className="gap-0 py-0">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-sm">Browse Components</CardTitle>
+      </CardHeader>
+      <CardContent className="pt-0">
+        <nav className="space-y-1">
+          {entries.map((entry) => (
+            <a
+              key={entry.id}
+              href={`#${entry.id}`}
+              className={cn(
+                "block rounded-2xl px-3 py-1 text-sm transition-colors",
+                activeId === entry.id
+                  ? "border-2 bg-white/12 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] dark:bg-white/8"
+                  : "text-muted-foreground hover:bg-white/6 hover:text-foreground dark:hover:bg-white/4"
+              )}
+            >
+              {entry.title}
+            </a>
+          ))}
+        </nav>
+      </CardContent>
+    </Card>
   )
 }

@@ -6,6 +6,7 @@ import { ArrowUpRight, Code2, Eye } from "lucide-react"
 import type { CatalogEntry } from "@/components/catalog/catalog-config"
 import { CodeBlock } from "@/components/catalog/code-block"
 import { buttonVariants } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 const SOURCE_BASE_URL = "https://github.com/kostyniuk/glasscn/blob/main"
@@ -21,14 +22,14 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
     <article
       id={entry.id}
       aria-labelledby={`${entry.id}-title`}
-      className="scroll-mt-28 flex flex-col gap-4"
+      className="flex scroll-mt-28 flex-col gap-4"
     >
       <header className="flex flex-col gap-3">
         <div className="flex items-center justify-between gap-4">
           <div className="min-w-0 flex-1 space-y-1.5">
             <h3
               id={`${entry.id}-title`}
-              className="font-heading truncate text-xl font-semibold tracking-tight md:text-2xl"
+              className="truncate font-heading text-xl font-semibold tracking-tight md:text-2xl"
             >
               {entry.title}
             </h3>
@@ -69,7 +70,7 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
             </div>
           </div>
         </div>
-        
+
         <div className="flex items-center">
           <TabSwitcher value={tab} onChange={setTab} />
         </div>
@@ -77,19 +78,20 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
 
       <div className="flex w-full flex-col">
         {tab === "preview" ? (
-          <div
+          <Card
             className={cn(
-              "relative flex min-h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/12 bg-white/[0.04] p-6 backdrop-blur-xl transition-colors",
-              "hover:border-white/20 dark:border-white/8 dark:bg-white/[0.02] dark:hover:border-white/14",
+              "gap-0 py-0 backdrop-blur-xl transition-colors hover:ring-foreground/10",
               // Subtle dot grid so small primitives have something to sit on
               "bg-[radial-gradient(rgba(15,23,42,0.06)_1px,transparent_1px)] [background-size:18px_18px]",
               "dark:bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)]"
             )}
           >
-            <div className="flex w-full max-w-[560px] items-center justify-center">
-              <Preview />
-            </div>
-          </div>
+            <CardContent className="flex min-h-[350px] w-full items-center justify-center p-6">
+              <div className="flex w-full max-w-[560px] items-center justify-center">
+                <Preview />
+              </div>
+            </CardContent>
+          </Card>
         ) : (
           <div className="flex w-full flex-col">
             <CodeBlock
@@ -131,11 +133,13 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
       </div>
 
       {entry.notes ? (
-        <div className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {entry.notes}
-          </p>
-        </div>
+        <Card className="gap-0 py-0">
+          <CardContent className="p-4">
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {entry.notes}
+            </p>
+          </CardContent>
+        </Card>
       ) : null}
     </article>
   )

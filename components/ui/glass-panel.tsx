@@ -1,4 +1,7 @@
+"use client"
+
 import * as React from "react"
+import { motion, useMotionTemplate, useMotionValue } from "motion/react"
 
 import { cn } from "@/lib/utils"
 import { FrostGlass } from "@/components/ui/frost-glass"
@@ -7,6 +10,7 @@ type GlassPanelTone = "hero" | "surface" | "overlay" | "inline"
 
 interface GlassPanelProps extends React.ComponentProps<typeof FrostGlass> {
   tone?: GlassPanelTone
+  spotlight?: boolean
 }
 
 const toneStyles: Record<GlassPanelTone, string> = {
@@ -23,17 +27,47 @@ function GlassPanel({
   tone = "surface",
   variant,
   className,
+  spotlight = false,
+  children,
   ...props
 }: GlassPanelProps) {
   const resolvedVariant =
     variant ?? (tone === "hero" ? "clear" : tone === "overlay" ? "frosted" : "subtle")
 
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
   return (
     <FrostGlass
       variant={resolvedVariant}
-      className={cn(toneStyles[tone], className)}
+      className={cn(toneStyles[tone], spotlight && "group relative", className)}
+      onMouseMove={handleMouseMove}
       {...props}
-    />
+    >
+      {spotlight && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:mix-blend-screen"
+          style={{
+            background: useMotionTemplate`
+              radial-gradient(
+                400px circle at ${mouseX}px ${mouseY}px,
+                var(--color-primary) 0%,
+                transparent 40%
+              )
+            `,
+            opacity: 0.15,
+            zIndex: 0,
+          }}
+        />
+      )}
+      {children}
+    </FrostGlass>
   )
 }
 

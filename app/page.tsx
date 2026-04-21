@@ -1,6 +1,6 @@
 import Image from "next/image"
+import { IconBrandGithub } from "@tabler/icons-react"
 
-import { Announcement } from "@/components/home/announcement"
 import {
   PageActions,
   PageHeader,
@@ -11,6 +11,10 @@ import { RootComponents } from "@/components/home/root-components"
 import { SiteHeader } from "@/components/home/site-header"
 import { GlassPanel } from "@/components/ui/glass-panel"
 import { buttonVariants } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import ShinyText from "@/components/ui/shiny-text"
+import { Reveal } from "@/components/ui/reveal"
+import { FloatingOrbs } from "@/components/ui/floating-orbs"
 import { cn } from "@/lib/utils"
 
 const title = "Beautifully Frosted Components"
@@ -25,8 +29,7 @@ const description = (
     >
       shadcn/ui
     </a>
-    . Elevate your Next.js applications with incredibly premium, translucent
-    components.
+    . Elevate your applications with beautifull translucent components.
   </>
 )
 
@@ -66,75 +69,104 @@ export default function Page() {
             "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')",
         }}
       />
+      <FloatingOrbs />
       <PageHeader className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
-        <GlassPanel
+        {/* <GlassPanel
           tone="hero"
           className="mb-6 rounded-full px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-shadow duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-none"
         >
           <Announcement />
-        </GlassPanel>
-        <PageHeaderHeading className="max-w-5xl bg-gradient-to-br from-foreground via-foreground/90 to-foreground/60 bg-clip-text pb-2 font-[family-name:var(--font-heading)] text-5xl font-bold tracking-tighter text-transparent drop-shadow-sm md:text-7xl">
-          {title}
-        </PageHeaderHeading>
-        <PageHeaderDescription className="mt-6 max-w-2xl text-lg leading-relaxed font-medium text-foreground/80 md:text-xl">
-          {description}
-        </PageHeaderDescription>
-        <PageActions className="mt-10">
-          <GlassPanel
-            tone="hero"
-            className="flex flex-wrap items-center justify-center gap-3 px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
-          >
-            <a
-              href="#components"
-              className={cn(
-                buttonVariants({ size: "sm" }),
-                "h-[36px] rounded-full px-6 font-medium transition-transform active:scale-95"
-              )}
+        </GlassPanel> */}
+        <div className="group relative mx-auto mb-2 max-w-5xl">
+          {/* Ambient background glow */}
+          <div className="absolute inset-0 z-0 mx-auto w-3/4 scale-90 bg-gradient-to-r from-primary/40 via-primary/20 to-primary/40 opacity-60 blur-3xl transition-all duration-700 group-hover:scale-100 group-hover:opacity-80 dark:opacity-80" />
+
+          {/* Glassy, gradient text */}
+          <h1 className="relative z-10 text-5xl font-black tracking-tighter drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] md:text-7xl lg:text-8xl dark:drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+            <ShinyText
+              text="GlassCN"
+              speed={3}
+              color="var(--primary)"
+              shineColor="rgba(255,255,255,0.8)"
+              className="bg-gradient-to-b from-primary/90 via-primary/80 to-primary/40 bg-clip-text"
+            />
+          </h1>
+        </div>
+        <Reveal delay={0.1}>
+          <PageHeaderHeading className="max-w-5xl bg-gradient-to-br from-foreground via-foreground/90 to-foreground/60 bg-clip-text pb-2 font-[family-name:var(--font-heading)] text-5xl font-bold tracking-tighter text-transparent drop-shadow-sm md:text-7xl">
+            {title}
+          </PageHeaderHeading>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <PageHeaderDescription className="mt-6 max-w-2xl text-lg leading-relaxed font-medium text-foreground/80 md:text-xl">
+            {description}
+          </PageHeaderDescription>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <PageActions className="mt-10">
+            <GlassPanel
+              tone="hero"
+              spotlight={true}
+              className="px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)] [&>div:last-child]:flex [&>div:last-child]:flex-wrap [&>div:last-child]:items-center [&>div:last-child]:justify-center [&>div:last-child]:gap-3"
             >
-              New Project
-            </a>
-            <a
-              href="/components"
-              className={cn(
-                buttonVariants({ size: "sm", variant: "ghost" }),
-                "h-[36px] rounded-full px-6 font-medium transition-transform active:scale-95"
-              )}
-            >
-              View Components
-            </a>
-          </GlassPanel>
-        </PageActions>
+              <a
+                href="https://github.com/kostyniuk/glasscn"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ size: "sm" }),
+                  "h-[36px] items-center gap-2 rounded-full bg-foreground px-6 leading-none font-medium text-background transition-transform hover:bg-foreground/90 active:scale-95"
+                )}
+              >
+                <IconBrandGithub className="size-4" />
+                GitHub
+              </a>
+              <a
+                href="/components"
+                className={cn(
+                  buttonVariants({ size: "sm", variant: "ghost" }),
+                  "h-[36px] items-center rounded-full px-6 leading-none font-medium transition-transform active:scale-95"
+                )}
+              >
+                View Components
+              </a>
+            </GlassPanel>
+          </PageActions>
+        </Reveal>
       </PageHeader>
       <div className="container-wrapper flex-1 pt-2 pb-12 md:pt-4 md:pb-16">
         <div className="container">
-          <GlassPanel
-            tone="surface"
-            className="-mx-2 w-[160vw] overflow-hidden p-4 sm:-mx-4 md:hidden md:w-[150vw]"
-          >
-            <section>
-              <Image
-                src="/home/dashboard-01-light.png"
-                width={1400}
-                height={875}
-                alt="Dashboard"
-                className="block rounded-[1.25rem] dark:hidden"
-                priority
-              />
-              <Image
-                src="/home/dashboard-01-dark.png"
-                width={1400}
-                height={875}
-                alt="Dashboard"
-                className="hidden rounded-[1.25rem] dark:block"
-                priority
-              />
+          <Reveal delay={0.4}>
+            <Card className="-mx-2 w-[160vw] gap-0 overflow-hidden py-0 sm:-mx-4 md:hidden md:w-[150vw]">
+              <CardContent className="p-4">
+                <section>
+                  <Image
+                    src="/home/dashboard-01-light.png"
+                    width={1400}
+                    height={875}
+                    alt="Dashboard"
+                    className="block rounded-[1.25rem] dark:hidden"
+                    priority
+                  />
+                  <Image
+                    src="/home/dashboard-01-dark.png"
+                    width={1400}
+                    height={875}
+                    alt="Dashboard"
+                    className="hidden rounded-[1.25rem] dark:block"
+                    priority
+                  />
+                </section>
+              </CardContent>
+            </Card>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <section className="hidden theme-container md:block">
+              <div className="rounded-[2rem] px-1 py-3 md:px-0 md:py-4">
+                <RootComponents />
+              </div>
             </section>
-          </GlassPanel>
-          <section className="hidden theme-container md:block">
-            <div className="rounded-[2rem] px-1 py-3 md:px-0 md:py-4">
-              <RootComponents />
-            </div>
-          </section>
+          </Reveal>
         </div>
       </div>
     </div>

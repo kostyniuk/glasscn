@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GlassPanel } from "@/components/ui/glass-panel"
+import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 export function DemoShell({
@@ -8,11 +8,10 @@ export function DemoShell({
   children,
 }: React.ComponentProps<"div">) {
   return (
-    <GlassPanel
-      tone="surface"
-      className={cn("p-4 md:p-5 backdrop-blur-[18px]", className)}
-    >
-      {children}
-    </GlassPanel>
+    <Card className="gap-0 py-0 backdrop-blur-[18px]">
+      <CardContent className={cn("p-4 md:p-5", className)}>
+        {children}
+      </CardContent>
+    </Card>
   )
 }

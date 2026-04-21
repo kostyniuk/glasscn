@@ -1,7 +1,7 @@
 import * as React from "react"
 
+import { Card as SharedCard } from "@/components/ui/card"
 import { cn } from "@/registry/bases/base/lib/utils"
-import { GlassPanel } from "@/components/ui/glass-panel"
 
 function Card({
   className,
@@ -10,14 +10,10 @@ function Card({
   ...props
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
-    <GlassPanel
-      tone="surface"
+    <SharedCard
       data-size={size}
       {...props}
-      className={cn(
-        "border-white/30 bg-white/10 shadow-[0_18px_42px_rgba(15,23,42,0.08)] dark:border-white/12 dark:bg-white/[0.035] dark:shadow-[0_18px_42px_rgba(0,0,0,0.2)]",
-        className
-      )}
+      className={cn("gap-0 py-0", className)}
     >
       <div
         data-slot="card"
@@ -26,7 +22,7 @@ function Card({
       >
         {children}
       </div>
-    </GlassPanel>
+    </SharedCard>
   )
 }
 

@@ -15,7 +15,7 @@ export async function SiteHeader() {
       const repo = await res.json()
       stars = repo.stargazers_count
     }
-  } catch {}
+  } catch { }
 
   return (
     <div className="fixed z-50 flex w-full justify-center">
@@ -48,7 +48,7 @@ export async function SiteHeader() {
                   <span className="text-sm font-medium">{stars}</span>
                 ) : (
                   <span className="flex items-center gap-1.5 text-sm font-medium">
-                    Be first one to star
+                    Be first one to
                     <IconStarFilled className="size-4 text-amber-500 dark:text-amber-400" />
                   </span>
                 )}

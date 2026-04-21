@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import { FrostGlass } from "@/components/ui/frost-glass"
 import { cn } from "@/lib/utils"
 
 function Card({
@@ -8,11 +9,12 @@ function Card({
   ...props
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
-    <div
+    <FrostGlass
+      variant="subtle"
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-6 overflow-hidden rounded-4xl bg-card py-6 text-sm text-card-foreground shadow-md ring-1 ring-foreground/5 has-[>img:first-child]:pt-0 data-[size=sm]:gap-4 data-[size=sm]:py-4 dark:ring-foreground/10 *:[img:first-child]:rounded-t-4xl *:[img:last-child]:rounded-b-4xl",
+        "group/card flex flex-col gap-6 overflow-hidden rounded-4xl border-border/80 bg-white/[0.06] py-6 text-sm text-card-foreground shadow-[0_14px_34px_rgba(15,23,42,0.06)] ring-1 ring-border/60 backdrop-saturate-100 has-[>img:first-child]:pt-0 data-[size=sm]:gap-4 data-[size=sm]:py-4 dark:bg-white/[0.025] dark:shadow-[0_16px_36px_rgba(0,0,0,0.14)] *:[img:first-child]:rounded-t-4xl *:[img:last-child]:rounded-b-4xl",
         className
       )}
       {...props}
