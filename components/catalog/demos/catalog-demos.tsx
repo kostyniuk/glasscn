@@ -245,8 +245,8 @@ export function ButtonGroupCatalogDemo() {
 export function CardCatalogDemo() {
   return (
     <DemoCanvas>
-      <Card className="w-full max-w-sm bg-white/8 dark:bg-white/[0.04]">
-        <CardHeader>
+      <Card className="w-full max-w-sm gap-8 bg-white/8 p-4 dark:bg-white/[0.04]">
+        <CardHeader className="gap-2.5">
           <CardTitle>Glass Revenue</CardTitle>
           <CardDescription>
             Monthly recurring revenue across premium tiers.
@@ -256,25 +256,25 @@ export function CardCatalogDemo() {
           </CardAction>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            <div className="text-3xl font-semibold tracking-tight">$48,240</div>
+          <div className="space-y-6">
+            <div className="text-4xl font-semibold tracking-tight">$48,240</div>
             <div className="grid grid-cols-3 gap-3 text-sm">
-              <GlassPanel tone="inline" className="rounded-[1.25rem] px-3 py-2">
+              <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
                 <div className="font-medium">Pro</div>
                 <div className="text-muted-foreground">432</div>
               </GlassPanel>
-              <GlassPanel tone="inline" className="rounded-[1.25rem] px-3 py-2">
+              <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
                 <div className="font-medium">Team</div>
                 <div className="text-muted-foreground">187</div>
               </GlassPanel>
-              <GlassPanel tone="inline" className="rounded-[1.25rem] px-3 py-2">
+              <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
                 <div className="font-medium">Scale</div>
                 <div className="text-muted-foreground">29</div>
               </GlassPanel>
             </div>
           </div>
         </CardContent>
-        <CardFooter className="justify-between">
+        <CardFooter className="justify-between pt-4">
           <span className="text-muted-foreground">Updated 6m ago</span>
           <Button size="sm">Open Report</Button>
         </CardFooter>

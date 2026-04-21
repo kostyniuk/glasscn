@@ -121,8 +121,8 @@ import { GlassPanel } from "@/components/ui/glass-panel"
 
 export function CardExample() {
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
+    <Card className="w-full max-w-sm gap-8 p-4">
+      <CardHeader className="gap-2.5">
         <CardTitle>Glass Revenue</CardTitle>
         <CardDescription>Monthly recurring revenue.</CardDescription>
         <CardAction>
@@ -130,25 +130,25 @@ export function CardExample() {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <div className="text-3xl font-semibold">$48,240</div>
+        <div className="space-y-6">
+          <div className="text-4xl font-semibold tracking-tight">$48,240</div>
           <div className="grid grid-cols-3 gap-3 text-sm">
-            <GlassPanel tone="inline" className="rounded-2xl px-3 py-2">
+            <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
               <div className="font-medium">Pro</div>
               <div className="text-muted-foreground">432</div>
             </GlassPanel>
-            <GlassPanel tone="inline" className="rounded-2xl px-3 py-2">
+            <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
               <div className="font-medium">Team</div>
               <div className="text-muted-foreground">187</div>
             </GlassPanel>
-            <GlassPanel tone="inline" className="rounded-2xl px-3 py-2">
+            <GlassPanel tone="inline" className="rounded-[1.75rem] px-4 py-4">
               <div className="font-medium">Scale</div>
               <div className="text-muted-foreground">29</div>
             </GlassPanel>
           </div>
         </div>
       </CardContent>
-      <CardFooter className="justify-between">
+      <CardFooter className="justify-between pt-4">
         <span className="text-muted-foreground">Updated 6m ago</span>
         <Button size="sm">Open Report</Button>
       </CardFooter>
