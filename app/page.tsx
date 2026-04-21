@@ -106,30 +106,31 @@ export default function Page() {
           <PageActions className="mt-10">
             <GlassPanel
               tone="hero"
-              spotlight={true}
-              className="px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)] [&>div:last-child]:flex [&>div:last-child]:flex-wrap [&>div:last-child]:items-center [&>div:last-child]:justify-center [&>div:last-child]:gap-3"
+              className="px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
             >
-              <a
-                href="https://github.com/kostyniuk/glasscn"
-                target="_blank"
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({ size: "sm" }),
-                  "h-[36px] items-center gap-2 rounded-full bg-foreground px-6 leading-none font-medium text-background transition-transform hover:bg-foreground/90 active:scale-95"
-                )}
-              >
-                <IconBrandGithub className="size-4" />
-                GitHub
-              </a>
-              <a
-                href="/components"
-                className={cn(
-                  buttonVariants({ size: "sm", variant: "ghost" }),
-                  "h-[36px] items-center rounded-full px-6 leading-none font-medium transition-transform active:scale-95"
-                )}
-              >
-                View Components
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="https://github.com/kostyniuk/glasscn"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "sm" }),
+                    "h-[36px] items-center gap-2 rounded-full bg-foreground px-6 leading-none font-medium text-background transition-transform hover:bg-foreground/90 active:scale-95"
+                  )}
+                >
+                  <IconBrandGithub className="size-4" />
+                  GitHub
+                </a>
+                <a
+                  href="/components"
+                  className={cn(
+                    buttonVariants({ size: "sm", variant: "ghost" }),
+                    "h-[36px] items-center rounded-full px-6 leading-none font-medium transition-transform active:scale-95"
+                  )}
+                >
+                  View Components
+                </a>
+              </div>
             </GlassPanel>
           </PageActions>
         </Reveal>
