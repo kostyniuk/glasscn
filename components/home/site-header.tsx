@@ -15,17 +15,25 @@ export async function SiteHeader() {
       const repo = await res.json()
       stars = repo.stargazers_count
     }
-  } catch (e) {}
+  } catch {}
 
   return (
     <div className="fixed z-50 flex w-full justify-center">
       <div className="mt-2 w-[calc(100%-2rem)] overflow-hidden rounded-4xl sm:w-[calc(50%-10px)]">
         <FrostGlass variant="clear">
           <div className="flex h-12 items-center justify-between px-5">
-            <ThemeToggle />
-            <Link href="/components">
-              <Button variant="ghost">Components</Button>
-            </Link>
+            <div className="flex items-center gap-1">
+              <ThemeToggle />
+              <Link href="/">
+                <Button variant="ghost">Home</Button>
+              </Link>
+              <Link href="/showcase">
+                <Button variant="ghost">Showcase</Button>
+              </Link>
+              <Link href="/components">
+                <Button variant="ghost">Components</Button>
+              </Link>
+            </div>
             <Link
               href="https://github.com/kostyniuk/glasscn"
               target="_blank"

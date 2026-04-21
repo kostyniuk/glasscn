@@ -22,7 +22,7 @@ function Card({
       <div
         data-slot="card"
         data-size={size}
-        className="cn-card group/card flex flex-col"
+        className={cn("cn-card group/card flex flex-col", className)}
       >
         {children}
       </div>

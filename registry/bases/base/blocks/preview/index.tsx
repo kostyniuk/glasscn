@@ -33,62 +33,59 @@ import { Visitors } from "@/registry/bases/base/blocks/preview/cards/visitors"
 import { WeeklyFitnessSummary } from "@/registry/bases/base/blocks/preview/cards/weekly-fitness-summary"
 
 export default function PreviewExample() {
+  const cards = [
+    <StyleOverview key="style-overview" />,
+    <TypographySpecimen key="typography-specimen" />,
+    <div key="ui-elements-mobile" className="md:hidden">
+      <UIElements />
+    </div>,
+    <CodespacesCard key="codespaces-card" />,
+    <Invoice key="invoice" />,
+    <IconPreviewGrid key="icon-preview-grid" />,
+    <div key="ui-elements-desktop" className="hidden md:block">
+      <UIElements />
+    </div>,
+    <ObservabilityCard key="observability-card" />,
+    <ShippingAddress key="shipping-address" />,
+    <EnvironmentVariables key="environment-variables" />,
+    <BarChartCard key="bar-chart-card" />,
+    <InviteTeam key="invite-team" />,
+    <ActivateAgentDialog key="activate-agent-dialog" />,
+    <SkeletonLoading key="skeleton-loading" />,
+    <PieChartCard key="pie-chart-card" />,
+    <NoTeamMembers key="no-team-members" />,
+    <ReportBug key="report-bug" />,
+    <Contributors key="contributors" />,
+    <FeedbackForm key="feedback-form" />,
+    <BookAppointment key="book-appointment" />,
+    <SleepReport key="sleep-report" />,
+    <GithubProfile key="github-profile" />,
+    <WeeklyFitnessSummary key="weekly-fitness-summary" />,
+    <FileUpload key="file-upload" />,
+    <AnalyticsCard key="analytics-card" />,
+    <UsageCard key="usage-card" />,
+    <Shortcuts key="shortcuts" />,
+    <AnomalyAlert key="anomaly-alert" />,
+    <LiveWaveformCard key="live-waveform-card" />,
+    <Visitors key="visitors" />,
+    <ContributionsActivity key="contributions-activity" />,
+    <NotFound key="not-found" />,
+  ]
+
   return (
     <div className="contain-[paint] [--gap:--spacing(4)] md:[--gap:--spacing(6)] xl:[--gap:--spacing(8)] 3xl:[--gap:--spacing(10)] style-lyra:md:[--gap:--spacing(6)] style-mira:md:[--gap:--spacing(6)]">
       <div
-        className="grid grid-cols-1 items-start gap-(--gap) md:grid-cols-2 xl:grid-cols-4"
+        className="columns-1 [column-gap:var(--gap)] md:columns-2 xl:columns-3 2xl:columns-4"
         data-slot="capture-target"
       >
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <StyleOverview />
-          <TypographySpecimen />
-          <div className="md:hidden">
-            <UIElements />
+        {cards.map((card) => (
+          <div
+            key={card.key}
+            className="mb-(--gap) min-w-0 break-inside-avoid p-px [contain-intrinsic-size:380px_600px] [content-visibility:auto] [&>*]:w-full"
+          >
+            {card}
           </div>
-          <CodespacesCard />
-          <Invoice />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <IconPreviewGrid />
-          <div className="hidden w-full md:flex">
-            <UIElements />
-          </div>
-          <ObservabilityCard />
-          <ShippingAddress />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <EnvironmentVariables />
-          <BarChartCard />
-          <InviteTeam />
-          <ActivateAgentDialog />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <SkeletonLoading />
-          <PieChartCard />
-          <NoTeamMembers />
-          <ReportBug />
-          <Contributors />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <FeedbackForm />
-          <BookAppointment />
-          <SleepReport />
-          <GithubProfile />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <WeeklyFitnessSummary />
-          <FileUpload />
-          <AnalyticsCard />
-          <UsageCard />
-          <Shortcuts />
-        </div>
-        <div className="flex min-w-0 flex-col gap-(--gap) p-px [contain-intrinsic-size:380px_1200px] [content-visibility:auto]">
-          <AnomalyAlert />
-          <LiveWaveformCard />
-          <Visitors />
-          <ContributionsActivity />
-          <NotFound />
-        </div>
+        ))}
       </div>
     </div>
   )
