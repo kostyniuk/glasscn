@@ -723,9 +723,11 @@ export function SpinnerCatalogDemo() {
   return (
     <DemoCanvas>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <GlassPanel tone="inline" className="flex items-center gap-2 px-4 py-3">
-          <Spinner />
-          Syncing layers
+        <GlassPanel tone="inline" className="px-4 py-3">
+          <div className="flex w-fit items-center gap-2">
+            <Spinner />
+            <span className="leading-none">Syncing layers</span>
+          </div>
         </GlassPanel>
         <Button variant="outline">
           <Spinner className="size-4" />
