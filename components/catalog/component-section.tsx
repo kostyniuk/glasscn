@@ -21,102 +21,69 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
     <article
       id={entry.id}
       aria-labelledby={`${entry.id}-title`}
-      className={cn(
-        "relative flex scroll-mt-28 flex-col overflow-hidden rounded-[1.5rem] border border-white/12 bg-white/[0.04] backdrop-blur-xl transition-colors",
-        "hover:border-white/20 dark:border-white/8 dark:bg-white/[0.02] dark:hover:border-white/14",
-        "[contain-intrinsic-size:720px_420px] [content-visibility:auto]"
-      )}
+      className="scroll-mt-28 flex flex-col gap-4"
     >
-      {/* Header: identity + tabs + external links */}
-      <header className="flex flex-col gap-3 border-b border-white/8 px-5 py-4 md:gap-4 dark:border-white/6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0 flex-1 space-y-1">
+      <header className="flex flex-col gap-3">
+        <div className="flex items-center justify-between gap-4">
+          <div className="min-w-0 flex-1 space-y-1.5">
             <h3
               id={`${entry.id}-title`}
-              className="font-heading truncate text-base font-semibold tracking-tight md:text-lg"
+              className="font-heading truncate text-xl font-semibold tracking-tight md:text-2xl"
             >
               {entry.title}
             </h3>
-            <p className="line-clamp-2 text-xs text-muted-foreground md:text-sm">
+            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
               {entry.description}
             </p>
           </div>
 
-          <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
-            <a
-              href={sourceHref}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "xs" }),
-                "rounded-full text-muted-foreground"
-              )}
-              title="View source on GitHub"
-            >
-              Source
-              <ArrowUpRight className="size-3" />
-            </a>
-            {entry.docsHref ? (
+          <div className="hidden shrink-0 flex-col items-end gap-1.5 sm:flex">
+            <div className="flex items-center gap-1.5">
               <a
-                href={entry.docsHref}
+                href={sourceHref}
                 target="_blank"
                 rel="noreferrer"
                 className={cn(
-                  buttonVariants({ variant: "ghost", size: "xs" }),
-                  "rounded-full text-muted-foreground"
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "h-8 rounded-full text-muted-foreground"
                 )}
+                title="View source on GitHub"
               >
-                Docs
-                <ArrowUpRight className="size-3" />
+                Source
+                <ArrowUpRight className="size-3.5" />
               </a>
-            ) : null}
+              {entry.docsHref ? (
+                <a
+                  href={entry.docsHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "sm" }),
+                    "h-8 rounded-full text-muted-foreground"
+                  )}
+                >
+                  Docs
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              ) : null}
+            </div>
           </div>
         </div>
-
-        <div className="flex items-center justify-between gap-3">
+        
+        <div className="flex items-center">
           <TabSwitcher value={tab} onChange={setTab} />
-          <div className="flex items-center gap-1.5 sm:hidden">
-            <a
-              href={sourceHref}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "xs" }),
-                "rounded-full text-muted-foreground"
-              )}
-            >
-              Source
-              <ArrowUpRight className="size-3" />
-            </a>
-            {entry.docsHref ? (
-              <a
-                href={entry.docsHref}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "xs" }),
-                  "rounded-full text-muted-foreground"
-                )}
-              >
-                Docs
-                <ArrowUpRight className="size-3" />
-              </a>
-            ) : null}
-          </div>
         </div>
       </header>
 
-      {/* Body: preview OR code (swapped, not stacked, to keep tiles compact) */}
-      <div className="relative flex flex-1 flex-col">
+      <div className="flex w-full flex-col">
         {tab === "preview" ? (
           <div
             className={cn(
-              "flex min-h-[280px] flex-1 items-center justify-center px-5 py-6",
-              // Subtle dot grid so small primitives (unchecked checkboxes,
-              // radios, low-contrast borders) have something to sit on —
-              // without adding another card. Tone adapts per theme.
-              "bg-[radial-gradient(rgba(15,23,42,0.08)_1px,transparent_1px)] [background-size:18px_18px]",
-              "dark:bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)]"
+              "relative flex min-h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/12 bg-white/[0.04] p-6 backdrop-blur-xl transition-colors",
+              "hover:border-white/20 dark:border-white/8 dark:bg-white/[0.02] dark:hover:border-white/14",
+              // Subtle dot grid so small primitives have something to sit on
+              "bg-[radial-gradient(rgba(15,23,42,0.06)_1px,transparent_1px)] [background-size:18px_18px]",
+              "dark:bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)]"
             )}
           >
             <div className="flex w-full max-w-[560px] items-center justify-center">
@@ -124,19 +91,51 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
             </div>
           </div>
         ) : (
-          <div className="flex flex-1 flex-col px-4 py-4 md:px-5 md:py-5">
-            <CodeBlock code={entry.source} className="flex-1" maxHeight="100%" />
+          <div className="flex w-full flex-col">
+            <CodeBlock
+              code={entry.source}
+              maxHeight="350px"
+              className="rounded-[1.5rem]"
+            />
           </div>
         )}
       </div>
 
-      {/* Notes (optional) */}
+      <div className="flex items-center gap-1.5 sm:hidden">
+        <a
+          href={sourceHref}
+          target="_blank"
+          rel="noreferrer"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "sm" }),
+            "rounded-full text-muted-foreground"
+          )}
+        >
+          Source
+          <ArrowUpRight className="size-3.5" />
+        </a>
+        {entry.docsHref ? (
+          <a
+            href={entry.docsHref}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "sm" }),
+              "rounded-full text-muted-foreground"
+            )}
+          >
+            Docs
+            <ArrowUpRight className="size-3.5" />
+          </a>
+        ) : null}
+      </div>
+
       {entry.notes ? (
-        <footer className="border-t border-white/8 px-5 py-3 dark:border-white/6">
-          <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {entry.notes}
           </p>
-        </footer>
+        </div>
       ) : null}
     </article>
   )
@@ -158,13 +157,13 @@ function TabSwitcher({
       <TabButton
         active={value === "preview"}
         onClick={() => onChange("preview")}
-        icon={<Eye className="size-3" />}
+        icon={<Eye className="size-3.5" />}
         label="Preview"
       />
       <TabButton
         active={value === "code"}
         onClick={() => onChange("code")}
-        icon={<Code2 className="size-3" />}
+        icon={<Code2 className="size-3.5" />}
         label="Code"
       />
     </div>
@@ -189,7 +188,7 @@ function TabButton({
       aria-selected={active}
       onClick={onClick}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-medium transition-colors",
+        "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium transition-colors",
         active
           ? "bg-white/15 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] dark:bg-white/10"
           : "text-muted-foreground hover:bg-white/6 hover:text-foreground dark:hover:bg-white/[0.04]"

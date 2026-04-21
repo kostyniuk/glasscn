@@ -31,10 +31,7 @@ import {
 } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import {
-  ButtonGroup,
-  ButtonGroupText,
-} from "@/components/ui/button-group"
+import { ButtonGroup, ButtonGroupText } from "@/components/ui/button-group"
 import {
   Card,
   CardAction,
@@ -130,6 +127,7 @@ import { Separator } from "@/components/ui/separator"
 import { Slider } from "@/components/ui/slider"
 import { Spinner } from "@/components/ui/spinner"
 import { Switch } from "@/components/ui/switch"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import {
   Tooltip,
@@ -137,19 +135,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-function DemoCanvas({
-  className,
-  children,
-}: React.ComponentProps<"div">) {
+function DemoCanvas({ className, children }: React.ComponentProps<"div">) {
   // Transparent centering container. The owning ComponentSection provides the
   // surface, so we intentionally avoid borders or fills here to prevent the
   // previous "card-in-card-in-card" nesting.
   return (
     <div
-      className={[
-        "flex w-full flex-1 items-center justify-center",
-        className,
-      ]
+      className={["flex w-full flex-1 items-center justify-center", className]
         .filter(Boolean)
         .join(" ")}
     >
@@ -162,7 +154,9 @@ export function AvatarCatalogDemo() {
   return (
     <DemoCanvas className="justify-between gap-6">
       <div className="flex flex-col gap-4">
-        <div className="text-sm font-medium text-foreground/80">Collaborators</div>
+        <div className="text-sm font-medium text-foreground/80">
+          Collaborators
+        </div>
         <AvatarGroup>
           <Avatar size="lg">
             <AvatarImage src="https://github.com/shadcn.png" />
@@ -562,7 +556,10 @@ export function PopoverCatalogDemo() {
           Preview Layer Stack
         </PopoverTrigger>
         <PopoverContent className="gap-0 overflow-hidden rounded-[1.5rem] p-0">
-          <GlassPanel tone="overlay" className="rounded-[inherit] border-0 p-0 shadow-none">
+          <GlassPanel
+            tone="overlay"
+            className="rounded-[inherit] border-0 p-0 shadow-none"
+          >
             <PopoverHeader className="px-4 py-4">
               <PopoverTitle>Glass recipe</PopoverTitle>
               <PopoverDescription>
@@ -684,7 +681,10 @@ export function SeparatorCatalogDemo() {
           <Separator className="flex-1" />
           <span className="text-sm text-muted-foreground">Spatial rhythm</span>
         </div>
-        <GlassPanel tone="inline" className="flex items-center gap-4 rounded-[1.5rem] px-4 py-3">
+        <GlassPanel
+          tone="inline"
+          className="flex items-center gap-4 rounded-[1.5rem] px-4 py-3"
+        >
           <span className="text-sm">Surface</span>
           <Separator orientation="vertical" />
           <span className="text-sm">Overlay</span>
@@ -767,6 +767,62 @@ export function SwitchCatalogDemo() {
           </Field>
         </FieldLabel>
       </FieldGroup>
+    </DemoCanvas>
+  )
+}
+
+export function TabsCatalogDemo() {
+  return (
+    <DemoCanvas>
+      <Tabs defaultValue="overview" className="w-full max-w-lg">
+        <TabsList className="w-full">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="activity">Activity</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview" className="pt-4">
+          <GlassPanel tone="inline" className="space-y-3 rounded-3xl p-4">
+            <div className="flex items-center justify-between">
+              <div className="text-sm font-medium">Workspace overview</div>
+              <Badge variant="secondary">Live</Badge>
+            </div>
+            <div className="grid grid-cols-3 gap-3 text-sm">
+              <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+                <div className="font-medium">12</div>
+                <div className="text-muted-foreground">Layers</div>
+              </div>
+              <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+                <div className="font-medium">4</div>
+                <div className="text-muted-foreground">Themes</div>
+              </div>
+              <div className="rounded-2xl bg-white/8 px-3 py-2 dark:bg-white/[0.04]">
+                <div className="font-medium">98%</div>
+                <div className="text-muted-foreground">Ready</div>
+              </div>
+            </div>
+          </GlassPanel>
+        </TabsContent>
+        <TabsContent value="activity" className="pt-4">
+          <GlassPanel tone="inline" className="rounded-3xl p-4">
+            <div className="space-y-2 text-sm">
+              <div className="font-medium">Recent activity</div>
+              <div className="text-muted-foreground">
+                Theme variables were synced across the latest glass surfaces.
+              </div>
+            </div>
+          </GlassPanel>
+        </TabsContent>
+        <TabsContent value="settings" className="pt-4">
+          <GlassPanel tone="inline" className="rounded-3xl p-4">
+            <div className="space-y-2 text-sm">
+              <div className="font-medium">Appearance settings</div>
+              <div className="text-muted-foreground">
+                Keep tabs readable while preserving the translucent shell.
+              </div>
+            </div>
+          </GlassPanel>
+        </TabsContent>
+      </Tabs>
     </DemoCanvas>
   )
 }

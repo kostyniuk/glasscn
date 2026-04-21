@@ -23,6 +23,7 @@ import {
   SliderCatalogDemo,
   SpinnerCatalogDemo,
   SwitchCatalogDemo,
+  TabsCatalogDemo,
   TextareaCatalogDemo,
   TooltipCatalogDemo,
 } from "@/components/catalog/demos/catalog-demos"
@@ -49,6 +50,7 @@ import {
   sliderSource,
   spinnerSource,
   switchSource,
+  tabsSource,
   textareaSource,
   tooltipSource,
 } from "@/components/catalog/demos/catalog-demo-sources"
@@ -152,7 +154,8 @@ export const catalogEntries: CatalogEntry[] = [
   {
     id: "field",
     title: "Field",
-    description: "High-level form composition for labels, descriptions, and states.",
+    description:
+      "High-level form composition for labels, descriptions, and states.",
     sourcePath: "components/ui/field.tsx",
     docsHref: docs("field"),
     preview: FieldCatalogDemo,
@@ -224,6 +227,15 @@ export const catalogEntries: CatalogEntry[] = [
     docsHref: docs("switch"),
     preview: SwitchCatalogDemo,
     source: switchSource,
+  },
+  {
+    id: "tabs",
+    title: "Tabs",
+    description: "Segmented navigation with a frosted translucent shell.",
+    sourcePath: "components/ui/tabs.tsx",
+    docsHref: docs("tabs"),
+    preview: TabsCatalogDemo,
+    source: tabsSource,
   },
   {
     id: "textarea",
