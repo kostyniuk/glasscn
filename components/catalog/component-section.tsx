@@ -5,7 +5,6 @@ import { ArrowUpRight, Code2, Eye } from "lucide-react"
 
 import type { CatalogEntry } from "@/components/catalog/catalog-config"
 import { CodeBlock } from "@/components/catalog/code-block"
-import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -32,20 +31,12 @@ export function ComponentSection({ entry }: { entry: CatalogEntry }) {
       <header className="flex flex-col gap-3 border-b border-white/8 px-5 py-4 md:gap-4 dark:border-white/6">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1 space-y-1">
-            <div className="flex flex-wrap items-center gap-2">
-              <h3
-                id={`${entry.id}-title`}
-                className="font-heading truncate text-base font-semibold tracking-tight md:text-lg"
-              >
-                {entry.title}
-              </h3>
-              <Badge
-                variant="ghost"
-                className="h-5 px-2 text-[10px] font-medium tracking-[0.14em] text-muted-foreground uppercase"
-              >
-                {entry.category}
-              </Badge>
-            </div>
+            <h3
+              id={`${entry.id}-title`}
+              className="font-heading truncate text-base font-semibold tracking-tight md:text-lg"
+            >
+              {entry.title}
+            </h3>
             <p className="line-clamp-2 text-xs text-muted-foreground md:text-sm">
               {entry.description}
             </p>

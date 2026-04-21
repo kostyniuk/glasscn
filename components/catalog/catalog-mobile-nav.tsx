@@ -2,23 +2,19 @@
 
 import * as React from "react"
 
+import type { CatalogEntry } from "@/components/catalog/catalog-config"
 import { GlassPanel } from "@/components/ui/glass-panel"
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import type { CatalogCategory, CatalogEntry } from "@/components/catalog/catalog-config"
 
 export function CatalogMobileNav({
-  categories,
   entries,
 }: {
-  categories: Array<{ id: CatalogCategory; title: string }>
   entries: CatalogEntry[]
 }) {
   const [value, setValue] = React.useState(entries[0]?.id ?? "")
@@ -58,22 +54,11 @@ export function CatalogMobileNav({
           <SelectValue placeholder="Jump to component" />
         </SelectTrigger>
         <SelectContent align="start">
-          {categories.map((category) => {
-            const categoryEntries = entries.filter(
-              (entry) => entry.category === category.id
-            )
-
-            return (
-              <SelectGroup key={category.id}>
-                <SelectLabel>{category.title}</SelectLabel>
-                {categoryEntries.map((entry) => (
-                  <SelectItem key={entry.id} value={entry.id}>
-                    {entry.title}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            )
-          })}
+          {entries.map((entry) => (
+            <SelectItem key={entry.id} value={entry.id}>
+              {entry.title}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </GlassPanel>

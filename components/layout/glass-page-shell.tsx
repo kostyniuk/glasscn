@@ -10,7 +10,7 @@ export async function GlassPageShell({
   return (
     <div
       className={cn(
-        "style-luma relative flex min-h-dvh flex-1 flex-col overflow-hidden",
+        "style-luma relative flex min-h-dvh flex-1 flex-col overflow-x-hidden",
         className
       )}
     >

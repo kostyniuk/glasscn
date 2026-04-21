@@ -2,15 +2,13 @@
 
 import * as React from "react"
 
+import type { CatalogEntry } from "@/components/catalog/catalog-config"
 import { GlassPanel } from "@/components/ui/glass-panel"
 import { cn } from "@/lib/utils"
-import type { CatalogCategory, CatalogEntry } from "@/components/catalog/catalog-config"
 
 export function CatalogSidebar({
-  categories,
   entries,
 }: {
-  categories: Array<{ id: CatalogCategory; title: string }>
   entries: CatalogEntry[]
 }) {
   const [activeId, setActiveId] = React.useState(entries[0]?.id ?? "")
@@ -47,43 +45,28 @@ export function CatalogSidebar({
   }, [entries])
 
   return (
-    <GlassPanel tone="surface" className="sticky top-24 rounded-[2rem] p-4">
+    <GlassPanel tone="surface" className="rounded-[2rem] p-4">
       <div className="mb-4 px-2">
         <div className="text-sm font-medium">Browse Components</div>
         <p className="mt-1 text-sm text-muted-foreground">
-          The current public glasscn surface.
+          A flat list of the translucent components in the public catalog.
         </p>
       </div>
-      <nav className="space-y-5">
-        {categories.map((category) => {
-          const categoryEntries = entries.filter(
-            (entry) => entry.category === category.id
-          )
-
-          return (
-            <div key={category.id}>
-              <div className="px-2 text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {category.title}
-              </div>
-              <div className="mt-2 space-y-1">
-                {categoryEntries.map((entry) => (
-                  <a
-                    key={entry.id}
-                    href={`#${entry.id}`}
-                    className={cn(
-                      "block rounded-2xl px-3 py-2 text-sm transition-colors",
-                      activeId === entry.id
-                        ? "bg-white/12 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] dark:bg-white/[0.08]"
-                        : "text-muted-foreground hover:bg-white/6 hover:text-foreground dark:hover:bg-white/[0.04]"
-                    )}
-                  >
-                    {entry.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )
-        })}
+      <nav className="space-y-1">
+        {entries.map((entry) => (
+          <a
+            key={entry.id}
+            href={`#${entry.id}`}
+            className={cn(
+              "block rounded-2xl px-3 py-2 text-sm transition-colors",
+              activeId === entry.id
+                ? "bg-white/12 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] dark:bg-white/[0.08]"
+                : "text-muted-foreground hover:bg-white/6 hover:text-foreground dark:hover:bg-white/[0.04]"
+            )}
+          >
+            {entry.title}
+          </a>
+        ))}
       </nav>
     </GlassPanel>
   )
