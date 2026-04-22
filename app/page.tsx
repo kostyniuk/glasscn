@@ -103,10 +103,10 @@ export default function Page() {
         <Reveal delay={0.3}>
           <PageActions className="mt-10">
             <GlassPanel
-              tone="hero"
-              className="px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+              tone="transparent"
+              className="w-fit max-w-full px-3 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
             >
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-3 max-[360px]:flex-wrap">
                 <a
                   href="https://github.com/kostyniuk/glasscn"
                   target="_blank"
