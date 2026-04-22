@@ -317,7 +317,12 @@ export function CheckboxCatalogDemo() {
 export function CommandCatalogDemo() {
   return (
     <DemoCanvas>
-      <Command className="w-full max-w-md bg-white/10 dark:bg-white/[0.05]">
+      <Command
+        // cmdk auto-selects the first item on mount when value is empty, which
+        // would scroll the full catalog page down to this demo.
+        defaultValue="catalog-preview-idle"
+        className="w-full max-w-md bg-white/10 dark:bg-white/[0.05]"
+      >
         <CommandInput placeholder="Search surfaces, actions, and themes..." />
         <CommandList>
           <CommandEmpty>No matches found.</CommandEmpty>
