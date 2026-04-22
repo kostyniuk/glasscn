@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { IconBrandGithub, IconStarFilled } from "@tabler/icons-react"
 
@@ -22,8 +23,29 @@ export async function SiteHeader() {
       <div className="mt-2 w-[calc(100%-2rem)] overflow-hidden rounded-4xl sm:w-[calc(50%-10px)]">
         <FrostGlass variant="clear">
           <div className="flex h-12 items-center justify-between px-3 sm:px-5">
-            <div className="flex items-center gap-0.5 sm:gap-1">
-              <ThemeToggle />
+            <div className="flex items-center gap-1 sm:gap-1.5">
+              <Link
+                href="/"
+                className="flex items-center gap-2 rounded-full px-2 py-1 transition-opacity hover:opacity-85"
+              >
+                <Image
+                  src="/glasscn-mark-light.svg"
+                  alt="glasscn"
+                  width={28}
+                  height={28}
+                  className="size-7 shrink-0 dark:hidden"
+                />
+                <Image
+                  src="/glasscn-mark-dark.svg"
+                  alt="glasscn"
+                  width={28}
+                  height={28}
+                  className="hidden size-7 shrink-0 dark:block"
+                />
+                <span className="hidden text-sm font-semibold tracking-tight sm:inline">
+                  glasscn
+                </span>
+              </Link>
               <Link href="/">
                 <Button variant="ghost" className="px-2.5 sm:px-3">
                   Home
@@ -40,28 +62,31 @@ export async function SiteHeader() {
                 </Button>
               </Link>
             </div>
-            <Link
-              href="https://github.com/kostyniuk/glasscn"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button
-                variant="ghost"
-                className="flex cursor-pointer flex-row items-center gap-0 sm:gap-2"
+            <div className="flex items-center gap-1 sm:gap-1.5">
+              <ThemeToggle />
+              <Link
+                href="https://github.com/kostyniuk/glasscn"
+                target="_blank"
+                rel="noreferrer"
               >
-                <IconBrandGithub className="size-5" />
-                {stars ? (
-                  <span className="hidden text-sm font-medium sm:inline">
-                    {stars}
-                  </span>
-                ) : (
-                  <span className="hidden items-center gap-1.5 text-sm font-medium sm:flex">
-                    Be first one to
-                    <IconStarFilled className="size-4 text-amber-500 dark:text-amber-400" />
-                  </span>
-                )}
-              </Button>
-            </Link>
+                <Button
+                  variant="ghost"
+                  className="flex cursor-pointer flex-row items-center gap-0 sm:gap-2"
+                >
+                  <IconBrandGithub className="size-5" />
+                  {stars ? (
+                    <span className="hidden text-sm font-medium sm:inline">
+                      {stars}
+                    </span>
+                  ) : (
+                    <span className="hidden items-center gap-1.5 text-sm font-medium sm:flex">
+                      Be first one to
+                      <IconStarFilled className="size-4 text-amber-500 dark:text-amber-400" />
+                    </span>
+                  )}
+                </Button>
+              </Link>
+            </div>
           </div>
         </FrostGlass>
       </div>

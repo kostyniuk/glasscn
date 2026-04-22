@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Outfit, Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
@@ -5,9 +6,24 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "glasscn",
   description: "shadcn components with Apple-like glass styling",
+  icons: {
+    icon: [
+      {
+        url: "/glasscn-mark-light.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/glasscn-mark-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    shortcut: "/glasscn-mark-light.svg",
+  },
 }
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
