@@ -14,6 +14,7 @@ import {
 
 export function CatalogMobileNav({ entries }: { entries: CatalogEntry[] }) {
   const [value, setValue] = React.useState(entries[0]?.id ?? "")
+  const selectedEntry = entries.find((entry) => entry.id === value)
 
   React.useEffect(() => {
     const sync = () => {
@@ -45,7 +46,9 @@ export function CatalogMobileNav({ entries }: { entries: CatalogEntry[] }) {
           }}
         >
           <SelectTrigger className="w-full border-transparent bg-transparent shadow-none focus-visible:ring-0">
-            <SelectValue placeholder="Jump to component" />
+            <SelectValue placeholder="Jump to component">
+              {selectedEntry?.title}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent align="start">
             {entries.map((entry) => (
