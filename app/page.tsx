@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { IconBrandGithub } from "@tabler/icons-react"
 
 import {
@@ -11,7 +10,6 @@ import { RootComponents } from "@/components/home/root-components"
 import { SiteHeader } from "@/components/home/site-header"
 import { GlassPanel } from "@/components/ui/glass-panel"
 import { buttonVariants } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import ShinyText from "@/components/ui/shiny-text"
 import { Reveal } from "@/components/ui/reveal"
 import { FloatingOrbs } from "@/components/ui/floating-orbs"
@@ -138,31 +136,7 @@ export default function Page() {
       <div className="container-wrapper flex-1 pt-2 pb-12 md:pt-4 md:pb-16">
         <div className="container">
           <Reveal delay={0.4}>
-            <Card className="-mx-2 w-[160vw] gap-0 overflow-hidden py-0 sm:-mx-4 md:hidden md:w-[150vw]">
-              <CardContent className="p-4">
-                <section>
-                  <Image
-                    src="/home/dashboard-01-light.png"
-                    width={1400}
-                    height={875}
-                    alt="Dashboard"
-                    className="block rounded-[1.25rem] dark:hidden"
-                    priority
-                  />
-                  <Image
-                    src="/home/dashboard-01-dark.png"
-                    width={1400}
-                    height={875}
-                    alt="Dashboard"
-                    className="hidden rounded-[1.25rem] dark:block"
-                    priority
-                  />
-                </section>
-              </CardContent>
-            </Card>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <section className="hidden theme-container md:block">
+            <section className="theme-container">
               <div className="rounded-[2rem] px-1 py-3 md:px-0 md:py-4">
                 <RootComponents />
               </div>

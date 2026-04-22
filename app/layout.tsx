@@ -34,7 +34,7 @@ export default function RootLayout({
         outfit.variable
       )}
     >
-      <body className="min-h-dvh overflow-x-hidden">
+      <body className="style-luma min-h-dvh overflow-x-hidden">
         <ThemeProvider>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
