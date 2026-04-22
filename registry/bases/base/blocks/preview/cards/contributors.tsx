@@ -16,6 +16,7 @@ import {
 
 // GitHub usernames displayed as contributor avatars.
 const usernames = [
+  "kostyniuk",
   "shadcn",
   "vercel",
   "nextjs",
