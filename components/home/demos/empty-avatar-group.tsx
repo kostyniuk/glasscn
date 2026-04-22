@@ -25,15 +25,15 @@ export function EmptyAvatarGroup() {
           <EmptyMedia>
             <AvatarGroup className="grayscale">
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage
+                  src="https://github.com/kostyniuk.png"
+                  alt="Alex Kostyniuk"
+                />
+                <AvatarFallback>AK</AvatarFallback>
               </Avatar>
               <Avatar>
-                <AvatarImage
-                  src="https://github.com/maxleiter.png"
-                  alt="@maxleiter"
-                />
-                <AvatarFallback>LR</AvatarFallback>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <Avatar>
                 <AvatarImage

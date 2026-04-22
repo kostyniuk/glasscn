@@ -6,7 +6,7 @@ import { motion, useMotionTemplate, useMotionValue } from "motion/react"
 import { cn } from "@/lib/utils"
 import { FrostGlass } from "@/components/ui/frost-glass"
 
-type GlassPanelTone = "hero" | "surface" | "overlay" | "inline"
+type GlassPanelTone = "hero" | "surface" | "overlay" | "inline" | "transparent"
 
 interface GlassPanelProps extends React.ComponentProps<typeof FrostGlass> {
   tone?: GlassPanelTone
@@ -21,23 +21,32 @@ const toneStyles: Record<GlassPanelTone, string> = {
     "rounded-[1.5rem] border-zinc-950/[0.1] bg-white/24 shadow-[0_16px_34px_rgba(15,23,42,0.12)] dark:border-white/12 dark:bg-white/[0.08] dark:shadow-[0_16px_34px_rgba(0,0,0,0.2)]",
   inline:
     "w-fit rounded-full border-zinc-950/[0.1] bg-white/14 px-2 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.05] dark:shadow-[0_10px_24px_rgba(0,0,0,0.14)]",
+  transparent:
+    "rounded-[1.75rem] border-border/80 bg-transparent shadow-none ring-1 ring-border/60 backdrop-blur-none backdrop-saturate-100 dark:border-white/10",
 }
 
 function GlassPanel({
   tone = "surface",
   variant,
+  noise,
   className,
   spotlight = false,
   children,
   ...props
 }: GlassPanelProps) {
   const resolvedVariant =
-    variant ?? (tone === "hero" ? "clear" : tone === "overlay" ? "frosted" : "subtle")
+    variant ??
+    (tone === "hero" ? "clear" : tone === "overlay" ? "frosted" : "subtle")
+  const resolvedNoise = noise ?? tone !== "transparent"
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+  function handleMouseMove({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect()
     mouseX.set(clientX - left)
     mouseY.set(clientY - top)
@@ -46,6 +55,7 @@ function GlassPanel({
   return (
     <FrostGlass
       variant={resolvedVariant}
+      noise={resolvedNoise}
       className={cn(toneStyles[tone], spotlight && "group relative", className)}
       onMouseMove={handleMouseMove}
       {...props}

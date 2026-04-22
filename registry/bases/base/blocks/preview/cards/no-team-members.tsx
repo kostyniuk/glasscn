@@ -27,17 +27,17 @@ export function NoTeamMembers() {
               <AvatarGroup className="grayscale">
                 <Avatar size="lg">
                   <AvatarImage
+                    src="https://github.com/kostyniuk.png"
+                    alt="Alex Kostyniuk"
+                  />
+                  <AvatarFallback>AK</AvatarFallback>
+                </Avatar>
+                <Avatar size="lg">
+                  <AvatarImage
                     src="https://github.com/shadcn.png"
                     alt="@shadcn"
                   />
                   <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <Avatar size="lg">
-                  <AvatarImage
-                    src="https://github.com/maxleiter.png"
-                    alt="@maxleiter"
-                  />
-                  <AvatarFallback>LR</AvatarFallback>
                 </Avatar>
                 <Avatar size="lg">
                   <AvatarImage

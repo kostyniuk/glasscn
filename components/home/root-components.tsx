@@ -23,25 +23,36 @@ export function RootComponents() {
       id="components"
       className="mx-auto grid gap-8 py-1 theme-container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8"
     >
-      <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
+      <div className="order-1 flex flex-col gap-6 md:order-none *:[div]:w-full *:[div]:max-w-full">
         <FieldDemo />
       </div>
-      <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
+      <div className="order-4 flex flex-col gap-6 md:order-none *:[div]:w-full *:[div]:max-w-full">
         <EmptyAvatarGroup />
         <SpinnerBadge />
         <ButtonGroupInputGroup />
         <FieldSlider />
         <InputGroupDemo />
       </div>
-      <div className="flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full">
+      <div className="order-2 flex flex-col gap-6 md:order-none *:[div]:w-full *:[div]:max-w-full">
+        <div className="flex flex-col gap-6 md:hidden">
+          <GlassPanel tone="inline" className="rounded-[1.25rem] px-4 py-3">
+            <FieldSeparator className="my-0">Appearance Settings</FieldSeparator>
+          </GlassPanel>
+          <AppearanceSettings />
+        </div>
         <InputGroupButtonExample />
         <ItemDemo />
-        <GlassPanel tone="inline" className="rounded-[1.25rem] px-4 py-3">
+        <GlassPanel
+          tone="inline"
+          className="hidden rounded-[1.25rem] px-4 py-3 md:flex"
+        >
           <FieldSeparator className="my-0">Appearance Settings</FieldSeparator>
         </GlassPanel>
-        <AppearanceSettings />
+        <div className="hidden md:block">
+          <AppearanceSettings />
+        </div>
       </div>
-      <div className="order-first flex flex-col gap-6 lg:hidden xl:order-last xl:flex *:[div]:w-full *:[div]:max-w-full">
+      <div className="order-3 flex flex-col gap-6 md:order-first lg:hidden xl:order-last xl:flex *:[div]:w-full *:[div]:max-w-full">
         <NotionPromptForm />
         <ButtonGroupDemo />
         <FieldCheckbox />
