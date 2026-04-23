@@ -1,13 +1,17 @@
 import * as React from "react"
 
-import { catalogEntries } from "@/components/catalog/catalog-config"
+import {
+  allCatalogEntries,
+  catalogEntries,
+  customCatalogEntries,
+} from "@/components/catalog/catalog-config"
 import { CatalogMobileNav } from "@/components/catalog/catalog-mobile-nav"
 import { CatalogSidebar } from "@/components/catalog/catalog-sidebar"
 import { ComponentSection } from "@/components/catalog/component-section"
 
 export function CatalogPage() {
   return (
-    <main className="container-wrapper relative z-10 flex-1 pt-24 pb-12 md:pt-28 md:pb-16">
+    <main className="relative z-10 container-wrapper flex-1 pt-24 pb-12 md:pt-28 md:pb-16">
       <div className="container">
         {/* Page header */}
         <div className="mb-8 max-w-3xl space-y-4 lg:mb-10">
@@ -16,22 +20,38 @@ export function CatalogPage() {
               Glass Components
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-foreground/80 md:text-lg">
-              The current public glasscn component surface, filtered down to
-              the pieces that visibly use the translucent design language.
-              Every tile includes a live preview and a copy-ready code
-              snippet.
+              The current public glasscn component surface, filtered down to the
+              pieces that visibly use the translucent design language. Every
+              tile includes a live preview and a copy-ready code snippet.
             </p>
           </div>
         </div>
 
-        <CatalogMobileNav entries={catalogEntries} />
+        <CatalogMobileNav entries={allCatalogEntries} />
 
         <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-10">
-          <div className="hidden lg:block lg:sticky lg:top-10 lg:h-fit lg:self-start">
-            <CatalogSidebar entries={catalogEntries} />
+          <div className="hidden lg:sticky lg:top-10 lg:block lg:h-fit lg:self-start">
+            <CatalogSidebar entries={allCatalogEntries} />
           </div>
 
-          <div className="min-w-0 space-y-5">
+          <div className="min-w-0 space-y-10">
+            <section className="space-y-5">
+              <header className="flex items-baseline gap-3">
+                <h2 className="font-heading text-2xl font-semibold tracking-tight md:text-3xl">
+                  Custom
+                </h2>
+                <span className="text-xs font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                  {customCatalogEntries.length}
+                </span>
+              </header>
+
+              <div className="grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8">
+                {customCatalogEntries.map((entry) => (
+                  <ComponentSection key={entry.id} entry={entry} />
+                ))}
+              </div>
+            </section>
+
             <header className="flex items-baseline gap-3">
               <h2 className="font-heading text-2xl font-semibold tracking-tight md:text-3xl">
                 Components
@@ -41,11 +61,13 @@ export function CatalogPage() {
               </span>
             </header>
 
-            <div className="grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8">
-              {catalogEntries.map((entry) => (
-                <ComponentSection key={entry.id} entry={entry} />
-              ))}
-            </div>
+            <section className="space-y-5">
+              <div className="grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8">
+                {catalogEntries.map((entry) => (
+                  <ComponentSection key={entry.id} entry={entry} />
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>
