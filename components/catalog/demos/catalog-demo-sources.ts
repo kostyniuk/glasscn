@@ -805,6 +805,126 @@ export function TabsExample() {
   )
 }`
 
+export const tabCardSource = `import { Globe, Shield, Sparkles } from "lucide-react"
+import {
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { TabCard } from "@/components/ui/tab-card"
+
+const tabs = [
+  {
+    value: "overview",
+    label: "Overview",
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Sparkles className="size-4" />
+            Workspace Overview
+          </CardTitle>
+          <CardDescription>
+            Monitor the current glass surface state across the product.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-3 sm:grid-cols-3">
+          {[
+            ["12", "Scenes"],
+            ["4", "Themes"],
+            ["98%", "Readiness"],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-[1.25rem] bg-white/[0.1] px-4 py-3 dark:bg-white/[0.05]"
+            >
+              <div className="text-lg font-semibold tracking-tight">{value}</div>
+              <div className="text-sm text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </CardContent>
+      </>
+    ),
+  },
+  {
+    value: "analytics",
+    label: "Analytics",
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Globe className="size-4" />
+            Adoption Signals
+          </CardTitle>
+          <CardDescription>
+            Compare surface performance without breaking the glass shell.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex items-end gap-2">
+            {[44, 72, 58, 81, 66, 92].map((height, index) => (
+              <div
+                key={index}
+                className="flex-1 rounded-full bg-white/[0.12] dark:bg-white/[0.06]"
+                style={{ height }}
+              />
+            ))}
+          </div>
+          <div className="text-sm text-muted-foreground">
+            Weekly interaction depth is up 18% after consolidating controls
+            into card-linked tabs.
+          </div>
+        </CardContent>
+      </>
+    ),
+  },
+  {
+    value: "security",
+    label: "Security",
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Shield className="size-4" />
+            Access Controls
+          </CardTitle>
+          <CardDescription>
+            Keep critical settings visible while preserving a single surface.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {[
+            "Require approval for production changes",
+            "Mirror theme tokens across admin workspaces",
+            "Preserve audit snapshots for 30 days",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.25rem] bg-white/[0.1] px-4 py-3 text-sm dark:bg-white/[0.05]"
+            >
+              {item}
+            </div>
+          ))}
+        </CardContent>
+      </>
+    ),
+  },
+]
+
+export function TabCardExample() {
+  return (
+    <TabCard
+      tabs={tabs}
+      variant="rounded"
+      className="max-w-xl"
+      listClassName="w-80 rounded-none border-0 bg-transparent p-0"
+      triggerClassName="data-active:border-transparent data-active:bg-input/50 data-active:backdrop-blur-[10px] data-active:backdrop-saturate-[1.35] dark:data-active:border-transparent dark:data-active:bg-input/20 dark:data-active:backdrop-blur-[10px] dark:data-active:backdrop-saturate-[1.35] w-30"
+      cardClassName="border-0 bg-input/50 py-0 shadow-none ring-0 backdrop-blur-[10px] backdrop-saturate-[1.35] [&>[aria-hidden]]:hidden"
+    />
+  )
+}`
+
 export const textareaSource = `import {
   Field,
   FieldDescription,

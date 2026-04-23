@@ -23,6 +23,7 @@ import {
   SliderCatalogDemo,
   SpinnerCatalogDemo,
   SwitchCatalogDemo,
+  TabCardCatalogDemo,
   TabsCatalogDemo,
   TextareaCatalogDemo,
   TooltipCatalogDemo,
@@ -50,6 +51,7 @@ import {
   sliderSource,
   spinnerSource,
   switchSource,
+  tabCardSource,
   tabsSource,
   textareaSource,
   tooltipSource,
@@ -68,6 +70,18 @@ export type CatalogEntry = {
 }
 
 const docs = (slug: string) => `https://ui.shadcn.com/docs/components/${slug}`
+
+export const customCatalogEntries: CatalogEntry[] = [
+  {
+    id: "tab-card",
+    title: "Tab Card",
+    description:
+      "Tabs and frosted card content merged into one continuous glass surface.",
+    sourcePath: "components/ui/tab-card.tsx",
+    preview: TabCardCatalogDemo,
+    source: tabCardSource,
+  },
+]
 
 export const catalogEntries: CatalogEntry[] = [
   {
@@ -154,8 +168,7 @@ export const catalogEntries: CatalogEntry[] = [
   {
     id: "field",
     title: "Field",
-    description:
-      "Form composition for labels, descriptions, and states.",
+    description: "Form composition for labels, descriptions, and states.",
     sourcePath: "components/ui/field.tsx",
     docsHref: docs("field"),
     preview: FieldCatalogDemo,
@@ -301,3 +314,5 @@ export const catalogEntries: CatalogEntry[] = [
     source: scrollAreaSource,
   },
 ]
+
+export const allCatalogEntries = [...customCatalogEntries, ...catalogEntries]
